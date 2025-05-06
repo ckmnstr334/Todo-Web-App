@@ -8,10 +8,13 @@ def add_todo():
     todos.append(todo)
     functions.write_todos(todos)
 
+st.text_input(label="", placeholder="Enter a to-do",
+              on_change=add_todo, key="new_todo")
 
 st.title("My Todos")
 st.subheader("Get more done every day.")
-st.write("Type away to get started!")
+st.write("Type away to <b>get started!</b>",
+         unsafe_allow_html=True)
 
 for index, todo in enumerate(todos):
     checkbox = st.checkbox(todo, key=todo)
@@ -22,6 +25,5 @@ for index, todo in enumerate(todos):
         st.rerun()
         
 
-st.text_input(label="", placeholder="Enter a to-do",
-              on_change=add_todo, key="new_todo")
+
 
